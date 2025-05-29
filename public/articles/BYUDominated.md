@@ -1,0 +1,3 @@
+# BYU Bounced Out by Alabama
+
+BYU had no answer to the onslot of three-points provided by Alabama's ultra-talented backcourt. Allowing 113 points posees as  a pitiful finale to a an overachieving squad led by Coach Young. Alabama torched the nets consistently, and BYU had little to respond. For future high-level competition, BYU will need athletes to bother the shots of these high-powered shooters.
