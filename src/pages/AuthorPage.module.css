@@ -1,0 +1,48 @@
+.pageContainer {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.authorHeading {
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo columns */
+.logoColumnLeft,
+.logoColumnRight {
+  position: fixed;
+  top: var(--logo-top, 150px);
+  transition: top 0.3s ease;
+  width: 60px;
+  z-index: 999;
+}
+
+.logoColumnLeft {
+  left: 10px;
+}
+
+.logoColumnRight {
+  right: 40px;
+}
+
+.teamLogo {
+  width: 80px;
+  margin: 10px 0;
+  transition: transform 0.2s ease;
+}
+
+.teamLogo:hover {
+  transform: scale(1.1);
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;;
+}

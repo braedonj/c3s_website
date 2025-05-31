@@ -16,6 +16,7 @@ const categoryDisplayNames = {
 
 function CategoryPage() {
   const { categoryName } = useParams();
+  const categoryClass = styles[categoryName.toLowerCase()] || '';
 
   const now = new Date();
   const threeWeeksAgo = new Date(now.getTime() - 1000 * 60 * 60 * 24 * 21);
@@ -29,7 +30,7 @@ function CategoryPage() {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
-    <div>
+    <div className={`${styles.fullPageGradient} ${styles[categoryName.toLowerCase()] || ''}`}>
       <Header />
       <main className={styles.container}>
         <h2 className={styles.categoryHeading}>

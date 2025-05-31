@@ -21,21 +21,27 @@ function ArticlePage() {
     }
   }, [article]);
 
-  if (!article) return <div>Article not found.</div>;
+  if (!article) {return (<div><Header/> <main className= {styles.pageContainer}>
+    <p>Article not found.</p> </main> </div>);
+  }
+
+  const mainTag = article.tags?.[0]?.toLowerCase() || 'default';
 
   return (
-    <>
-    <div>
+    <div className={`${styles.fullPageGradient} ${styles[mainTag] || ''}`}>
       <Header/>
-    </div>
+      <main className={styles.pageContainer}>
+        <div className={styles.articleBox}>
 
-    <div style={{ maxWidth: '800px', margin: 'auto', padding: '2rem' }}>
-      <h1>{article.title}</h1>
-      <p><strong>{article.author}</strong> | {article.date}</p>
-      <img className={styles.articleImage} src={article.image} alt={article.title} />
-      <ReactMarkdown>{markdown}</ReactMarkdown>
+         <h1>{article.title}</h1>
+         <p><strong>{article.author}</strong> | {article.date}</p>
+         {article.image && (<img className={styles.articleImage} src={article.image} alt={article.title} />
+         )}
+          {/* <img className={styles.articleImage} src={article.image} alt={article.title} /> */}
+         <ReactMarkdown>{markdown}</ReactMarkdown>
+        </div>
+      </main>
     </div>
-    </>
   );
 }
 

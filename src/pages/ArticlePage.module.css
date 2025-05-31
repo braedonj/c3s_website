@@ -1,7 +1,61 @@
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: transparent; /* keep gradient if inherited */
+}
+
+.articleBox {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .articleImage {
-  width: 300px;
+  display: block;
+  max-width: 100%;
+  width: 450px;
   height: auto;
   border-radius: 8px;
-  margin: 1rem 0;
+  margin: 1rem auto;
   /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.fullPageGradient {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* Category-specific color schemes */
+.nfl {
+  background: linear-gradient(to right, #d50000, #ffffff, #ffffff, #0033cc);
+}
+
+
+.nba {
+  background: linear-gradient(to right, #1d428a,#ffffff, #c8102e); /* NBA colors */
+}
+
+.mlb {
+  background: linear-gradient(to right,#d50032,#ffffff, #002d72); /* MLB colors */
+}
+
+.cfb {
+  background: linear-gradient(to right, #004c00,#ffffff,#ffffff, #ffcc00); /* College Football */
+}
+
+.cbb {
+  background: linear-gradient(to right, #2774AE, #ffffff,#ffffff, #FFB81C); /* College Basketball */
+}
+
+.olympic {
+  background: linear-gradient(to right, #ffcc00,#ffffff,#ffffff, #00a3e0);
+}
+
+.other {
+  background: linear-gradient(to right, #d9fd0e,#ffffff, #bf88f0);
 }

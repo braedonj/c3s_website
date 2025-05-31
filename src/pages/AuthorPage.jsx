@@ -4,17 +4,45 @@ import ArticleCard from '../components/ArticleCard';
 import Header from '../components/Header';
 import { motion } from 'framer-motion';
 import styles from './CategoryPage.module.css'; // Reuse existing styles
+import styles2 from './AuthorPage.module.css';
+import { useState} from 'react';
+import { authorLogos } from '../data/authorLogo';
+import { useEffect } from 'react';
 
 function toTitleCase(str) {
+  const exceptions = {
+    bj: 'BJ'
+    // add more special cases here if needed
+  };
+
+  // Default behavior for other names
   return str
     .toLowerCase()
     .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map(word => exceptions[word] || word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 }
 
 function AuthorPage() {
   const { authorSlug } = useParams();
+  const [showLogos, setShowLogos] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const isAtTop = window.scrollY < 20;
+    const root = document.documentElement;
+    root.style.setProperty('--logo-top', isAtTop ? '230px' : '20px');
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+  
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+  }, []);
+
+
 
   const now = new Date();
   const fourWeeksAgo = new Date(now.getTime() - 1000 * 60 * 60 * 24 * 28);
@@ -27,14 +55,38 @@ function AuthorPage() {
     .filter(article => new Date(article.date) >= fourWeeksAgo)
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  const displayName = filteredArticles[0]?.author || toTitleCase(authorSlug.replace(/-/g, " "));
+  const authorInfo = authorLogos.find(a => a.authorSlug === authorSlug);
+  const favoriteTeams = authorInfo?.favoriteTeams || [];
 
+  const displayName =
+  filteredArticles[0]?.author || toTitleCase(authorSlug.replace(/-/g, ' '));
 
   return (
-    <>
+    <div>
       <Header />
-      <div style={{ maxWidth: '800px', margin: 'auto', padding: '2rem' }}>
-        <h1>Articles by {displayName}</h1>
+        {showLogos && (
+          <>
+            <div className={styles2.logoColumnLeft}>
+               {favoriteTeams.map((team, i) => (
+                 <img key={i} src={team.logo} alt={team.name} className={styles2.teamLogo} />
+               ))}
+            </div>
+            <div className={styles2.logoColumnRight}>
+               {favoriteTeams.map((team, i) => (
+                <img key={i} src={team.logo} alt={team.name} className={styles2.teamLogo} />
+              ))}
+             </div>
+          </>
+        )}
+
+      <div className={styles2.pageContainer}>
+        <h1
+          className={styles2.authorHeading}
+          onMouseEnter={() => setShowLogos(true)}
+          onMouseLeave={() => setShowLogos(false)}
+        >
+          Articles by {displayName}
+        </h1>
 
         {recentArticles.length === 0 ? (
           <p>No recent articles found for "{displayName}".</p>
@@ -57,7 +109,7 @@ function AuthorPage() {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

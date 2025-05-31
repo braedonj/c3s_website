@@ -9,7 +9,7 @@ export const articles = [
     date: "May 18, 2025",
     image: "/images/JazzLogo.png",
     contentPath: "/articles/JazzDraft.md",
-    tags: ["NBA"]
+    tags: ["nba"]
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const articles = [
     date: "May 18, 2025",
     image: "https://denversports.com/wp-content/uploads/2024/04/GettyImages-2146718921.jpg",
     contentPath: "/articles/RockiesBad.md",
-    tags: ["MLB"]
+    tags: ["mlb"]
   },
     {
     id: 3,
@@ -33,7 +33,7 @@ export const articles = [
     date: "May 17, 2025",
     image: "https://tse4.mm.bing.net/th?id=OIP.Cbowk9AUHcbUxJVTWDw8DgHaEo&pid=Api&P=0&h=220.jpg",
     contentPath: "/articles/CowboysareBlinded.md",
-    tags: ["NFL"]
+    tags: ["nfl"]
   },
       {
     id: 4,
@@ -45,6 +45,6 @@ export const articles = [
     date: "April 17, 2025",
     image: "https://byucougars.com/imgproxy/vp6NMcImwNB0zbbCfnAXPtvwsAtMlzlOtJ8tN4ZUoL0/rs:fit:1980:0:0/g:ce/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2J5dWNvdWdhcnMtcHJvZC8yMDI0LzA0LzE2L1pOaGtYV3A3R29OeEFmelpzcm1Ld3V6VmlRM0lnQUxYdWxoOW5sNmUuanBn.jpg",
     contentPath: "/articles/BYUDominated.md",
-    tags: ["CBB"]
+    tags: ["cbb"]
   }
 ];

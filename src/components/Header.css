@@ -14,7 +14,9 @@
 }
 
 .top-bar {
-  background-color: #07f76b; /* Green */
+  
+  background: linear-gradient(to right, black 10%, rgb(58, 249, 163) 65%); 
+  /* background-color: rgb(15, 252, 146);  */
   /* background: linear-gradient(#07f76b, white; */
   padding: 0.5rem 1rem;
   display: flex;
@@ -26,6 +28,10 @@
   margin-left: 20px;
   text-decoration: none;
   font-weight: bold;
+}
+
+.sports-nav a:hover {
+  color: #cccc;
 }
 
 .header-main {

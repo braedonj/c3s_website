@@ -18,12 +18,19 @@ function AuthorArchivePage() {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 function toTitleCase(str) {
+  const exceptions = {
+    bj: 'BJ'
+    // add more special cases here if needed
+  };
+
+  // Default behavior for other names
   return str
     .toLowerCase()
     .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map(word => exceptions[word] || word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 }
+
 
   return (
     <div>
