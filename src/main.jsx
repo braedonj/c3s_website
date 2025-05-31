@@ -7,6 +7,7 @@ import AuthorPage from './pages/AuthorPage';
 import CategoryPage from './pages/CategoryPage';
 import ArchiveCategoryPage from './pages/ArchiveCategoryPage';
 import AuthorArchivePage from './pages/AuthorArchivePage';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
