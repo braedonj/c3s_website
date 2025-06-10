@@ -59,3 +59,34 @@
 .other {
   background: linear-gradient(to right, #d9fd0e,#ffffff, #bf88f0);
 }
+
+.markdown {
+  line-height: 1.4;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 1rem;
+  }
+
+  .articleBox {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .articleImage {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.5rem 0;
+  }
+    h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}

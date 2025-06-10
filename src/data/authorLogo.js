@@ -12,7 +12,7 @@ export const authorLogos = [
   author: "Joseph Whiting",
   authorSlug: "joseph-whiting",
   favoriteTeams: [
-    { name: "Lakers", logo: "/logos/Lakers.png" },
+    { name: "Jazz", logo: "/logos/Jazz.png" },
     { name: "Cowboys", logo: "/logos/Cowboys.webp"},
     { name: "BYU", logo: "/logos/BYU.png"},
     { name: "Texas Tech", logo: "/logos/TexasTech.png"},

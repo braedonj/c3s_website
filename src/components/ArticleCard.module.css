@@ -40,3 +40,23 @@
 .link:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text {
+    width: 100%;
+  }
+
+  .image {
+  width: 200px;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+}

@@ -8,6 +8,7 @@ import styles2 from './AuthorPage.module.css';
 import { useState} from 'react';
 import { authorLogos } from '../data/authorLogo';
 import { useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
 function toTitleCase(str) {
   const exceptions = {
@@ -43,6 +44,17 @@ useEffect(() => {
   }, []);
 
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+}
 
   const now = new Date();
   const fourWeeksAgo = new Date(now.getTime() - 1000 * 60 * 60 * 24 * 28);
@@ -60,6 +72,9 @@ useEffect(() => {
 
   const displayName =
   filteredArticles[0]?.author || toTitleCase(authorSlug.replace(/-/g, ' '));
+
+  const isMobile = useIsMobile();
+
 
   return (
     <div>
@@ -82,8 +97,12 @@ useEffect(() => {
       <div className={styles2.pageContainer}>
         <h1
           className={styles2.authorHeading}
-          onMouseEnter={() => setShowLogos(true)}
-          onMouseLeave={() => setShowLogos(false)}
+         {...(isMobile
+           ? { onClick: () => setShowLogos(prev => !prev) }
+            : {
+                onMouseEnter: () => setShowLogos(true),
+                onMouseLeave: () => setShowLogos(false),
+            })}
         >
           Articles by {displayName}
         </h1>

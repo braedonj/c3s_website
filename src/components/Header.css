@@ -80,8 +80,6 @@
 }
 .author-buttons {
   display: flex;
-  /* justify-content: space-between; */
-   /* Or space-evenly */
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -137,3 +135,75 @@
 .site-header.scrolled {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+
+  .author-buttons {
+    gap: 0.5rem;
+    padding: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .author-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    border-width: 2px;
+  }
+
+  .top-bar {
+    background: linear-gradient(to right, black 1%, rgb(58, 249, 163) 5%); 
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    font-size: .7rem;
+  }
+
+  .sports-nav a {
+    margin: 0.5rem;
+    display: inline-block;
+  }
+
+  .logo-container {
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start; /* ← aligns logo to the left */
+  padding-left: 0rem; /* optional spacing from edge */
+  }
+
+  .logo {
+  height: 100%;
+  max-height: 75px;
+  width: auto;
+  object-fit: fill;
+  padding: 0.2rem;
+}
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    background: transparent;
+  }
+
+    .author-btn {
+    width: 29px;
+    height: 29px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    border-width: 2px;
+  }
+
+  .author-btn img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+

@@ -27,7 +27,9 @@ function ArticlePage() {
 
   const mainTag = article.tags?.[0]?.toLowerCase() || 'default';
 
+
   return (
+    
     <div className={`${styles.fullPageGradient} ${styles[mainTag] || ''}`}>
       <Header/>
       <main className={styles.pageContainer}>
@@ -38,10 +40,15 @@ function ArticlePage() {
          {article.image && (<img className={styles.articleImage} src={article.image} alt={article.title} />
          )}
           {/* <img className={styles.articleImage} src={article.image} alt={article.title} /> */}
-         <ReactMarkdown>{markdown}</ReactMarkdown>
+         {/* <ReactMarkdown className={styles.markdown}>{markdown}</ReactMarkdown> */}
+         <div className={styles.markdown}>
+           <ReactMarkdown>{markdown}</ReactMarkdown>
+         </div>
+
+         {/* <ReactMarkdown>{markdown}</ReactMarkdown> */}
         </div>
       </main>
-    </div>
+    </div>  
   );
 }
 
