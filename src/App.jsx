@@ -38,7 +38,7 @@ function App() {
 
       </main>
 
-      <footer>&copy; 2025 CCCSports</footer>
+      <footer>Not Actually &copy; 2025 CCCSports</footer>
     </div>
 
     </>
