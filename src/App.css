@@ -17,6 +17,7 @@ body {
   max-width: 1200px;
   margin: auto;
   padding: 2rem;
+  padding-top: 0.2rem;
 }
 
 footer {
@@ -41,6 +42,7 @@ footer {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  margin-top: 0rem;
   text-transform: capitalize;
   color: #333
 }
@@ -48,11 +50,12 @@ footer {
 
 @media (max-width: 768px) {
   .container {
-    padding: 1rem;
+    padding: 0rem 1rem 0.2rem 1.5rem;
   }
 
   .titleHeading {
     font-size: 1.5rem;
+    padding-bottom: .25rem;
   }
 
   .recent-articles {

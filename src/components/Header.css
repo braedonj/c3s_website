@@ -191,6 +191,12 @@
 @media (max-width: 768px) {
   .logo-container {
     background: transparent;
+    padding-bottom: 0rem;
+  }
+  
+  .top-bar {
+    padding: 0rem;
+    font-size: .8rem;
   }
 
     .author-btn {
@@ -205,5 +211,10 @@
     border-radius: 50%;
     object-fit: cover;
   }
+  .header-top {
+  padding-bottom: 0.25rem;
+  padding-top: .35rem;
+  gap: 0rem;
+}
 }
 

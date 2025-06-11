@@ -3,6 +3,7 @@ import { articles } from "../data/articles";
 import ArticleCard from "../components/ArticleCard";
 import Header from "../components/Header";
 import styles from './CategoryPage.module.css';
+import SearchBar from '../components/SearchBar';
 
 const categoryDisplayNames = {
   nfl: "NFL",
@@ -31,9 +32,12 @@ function ArchiveCategoryPage() {
   return (
     <div>
       <Header />
+        <div className="search-bar-wrapper">
+          <SearchBar articles={articles} mode="category" filterValue={categoryName} />
+        </div>
       <main className={styles.container}>
         <h2 className={styles.categoryHeading}>
-         {categoryDisplayNames[categoryName.toLowerCase()] || categoryName} Articles
+         {categoryDisplayNames[categoryName.toLowerCase()] || categoryName} Articles Archive
         </h2>
 
 

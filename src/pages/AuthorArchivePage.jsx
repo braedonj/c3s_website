@@ -3,9 +3,12 @@ import { articles } from "../data/articles";
 import ArticleCard from "../components/ArticleCard";
 import Header from "../components/Header";
 import styles from './CategoryPage.module.css'; // Reuse styling
+import SearchBar from '../components/SearchBar';
 
 function AuthorArchivePage() {
   const { authorSlug } = useParams();
+  const { authorName } = useParams(); // step 4
+
 
   const now = new Date();
   const fourWeeksAgo = new Date(now.getTime() - 1000 * 60 * 60 * 24 * 28);
@@ -35,8 +38,12 @@ function toTitleCase(str) {
   return (
     <div>
       <Header />
+        <div className="search-bar-wrapper">
+          <SearchBar articles={articles} mode="author" filterValue={authorSlug} />
+
+        </div>
       <main className={styles.container}>
-        <h1>{toTitleCase(authorSlug.replace(/-/g, " "))} Archived Articles</h1>
+        <h1>{toTitleCase(authorSlug.replace(/-/g, " "))} Articles Archive</h1>
         {archivedArticles.length > 0 ? (
           <section className={styles.recentArticles}>
             {archivedArticles.map((article) => (

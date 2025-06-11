@@ -8,6 +8,9 @@ import styles2 from './AuthorPage.module.css';
 import { useState} from 'react';
 import { authorLogos } from '../data/authorLogo';
 import { useEffect } from 'react';
+import SearchBar from '../components/SearchBar';
+
+
 // import { useState, useEffect } from 'react';
 
 function toTitleCase(str) {
@@ -27,6 +30,8 @@ function toTitleCase(str) {
 function AuthorPage() {
   const { authorSlug } = useParams();
   const [showLogos, setShowLogos] = useState(false);
+  const { authorName } = useParams();
+
 
 useEffect(() => {
   const handleScroll = () => {
@@ -75,10 +80,12 @@ function useIsMobile() {
 
   const isMobile = useIsMobile();
 
-
   return (
     <div>
       <Header />
+        <div className="search-bar-wrapper">
+          <SearchBar articles={articles} mode="author" filterValue={authorSlug} />
+         </div>
         {showLogos && (
           <>
             <div className={styles2.logoColumnLeft}>

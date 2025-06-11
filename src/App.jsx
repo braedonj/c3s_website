@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Header from './components/Header';
 import { motion } from 'framer-motion';
 import { a, b } from 'framer-motion/client';
+import SearchBar from './components/SearchBar';
 
 function App() {
   const now = new Date();
@@ -16,6 +17,10 @@ function App() {
   return (
     <>
     <Header />
+     <div className="search-bar-wrapper">
+      <SearchBar articles={articles} mode="all" />
+     </div>
+
     <div>
       <main className="container">
         <h2 className="titleHeading"> Recent Articles</h2>

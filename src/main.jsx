@@ -5,7 +5,7 @@ import App from './App';
 import ArticlePage from './pages/ArticlePage';
 import AuthorPage from './pages/AuthorPage';
 import CategoryPage from './pages/CategoryPage';
-import ArchiveCategoryPage from './pages/ArchiveCategoryPage';
+import CategoryArchivePage from './pages/CategoryArchivePage';
 import AuthorArchivePage from './pages/AuthorArchivePage';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/articles/:slug" element={<ArticlePage />} />
         <Route path="/author/:authorSlug" element={<AuthorPage />} />
         <Route path="/:categoryName" element={<CategoryPage />} />
-        <Route path="/:categoryName/archive" element={<ArchiveCategoryPage />} />
+        <Route path="/:categoryName/archive" element={<CategoryArchivePage />} />
         <Route path="/author/:authorSlug/archive" element={<AuthorArchivePage />} />
 
 
