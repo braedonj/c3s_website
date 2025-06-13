@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import styles from './ArticlePage.module.css';
 import Header from '/src/components/Header.jsx';
+import CommentSection from '/src/components/CommentSection.jsx';
 
 function ArticlePage() {
   const { slug } = useParams();
@@ -47,6 +48,8 @@ function ArticlePage() {
 
          {/* <ReactMarkdown>{markdown}</ReactMarkdown> */}
         </div>
+      
+        <CommentSection slug={article.slug} isAdmin={true} />
       </main>
     </div>  
   );

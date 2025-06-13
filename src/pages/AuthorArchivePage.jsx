@@ -40,7 +40,6 @@ function toTitleCase(str) {
       <Header />
         <div className="search-bar-wrapper">
           <SearchBar articles={articles} mode="author" filterValue={authorSlug} />
-
         </div>
       <main className={styles.container}>
         <h1>{toTitleCase(authorSlug.replace(/-/g, " "))} Articles Archive</h1>

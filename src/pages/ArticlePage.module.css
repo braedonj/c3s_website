@@ -3,6 +3,8 @@
   justify-content: center;
   padding: 2rem;
   background: transparent; /* keep gradient if inherited */
+  flex-direction: column;
+  align-items: center;
 }
 
 .articleBox {
@@ -61,8 +63,8 @@
 }
 
 .markdown {
-  line-height: 1.4;
-  font-size: 1.1rem;
+  line-height: 1.1rem;
+  font-size: 1.0rem;
   color: #333;
 }
 

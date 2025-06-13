@@ -1,0 +1,186 @@
+.commentSection {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 650px;
+  padding-top: 1rem;
+  border-top: 3px solid #ccc;
+}
+
+.commentsTitle {
+    font-size: 1.4rem;
+    margin: .25rem;
+    margin-bottom: 1.3rem;
+}
+
+.comment {
+  background-color: white;
+  padding: 0.1rem 1rem;
+  border-radius: 10px;
+  margin-bottom: .4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reply {
+  background-color: #f9f9f9;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  margin: 0.5rem 0 0.4rem 1.5rem;
+  border-left: 3px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.comment p,
+.reply p {
+  margin-top: .25rem;   /* less space above */
+  margin-bottom: .25rem; /* less space below */
+  line-height: 1.4;       /* tighter line height */
+}
+
+.comment p, strong {
+  display: inline-block;
+  margin-bottom: 0.1rem;  /* slightly less gap below author name */
+  margin-right: 0.3rem;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.3rem;
+}
+
+.actions button {
+  margin-right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0077cc;
+  font-size: .7rem;
+}
+
+.viewMore {
+  margin-top: 1rem;
+  background: peachpuff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.addCommentBtn {
+  margin-bottom: .25rem;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.addCommentForm {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.addCommentForm input,
+.addCommentForm textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.addCommentForm button {
+  align-self: flex-start;
+  background-color: green;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.replyForm {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: .6rem;
+}
+
+.replyForm input,
+.replyForm textarea {
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 0.95rem;
+}
+
+
+.replyForm button {
+  display: inline-flex;
+  align-self: flex-start;
+  background-color: #28a745;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: .5rem;
+}
+
+
+.cancelButton {
+  background-color: #ccc;
+  color: #333;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modalActions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.modalActions button {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #eee;
+  transition: background-color 0.2s;
+}
+
+.modalActions button:hover {
+  background-color: #ddd;
+}
+
