@@ -8,13 +8,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-console.log('Database URL from env:', process.env.DATABASE_URL);
-
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 });
+
+// pool.connect()
+//   .then(() => console.log('Connected to Neon DB!'))
+//   .catch(err => console.error('Connection failed:', err));
+
 
 app.get('/api/comments', async (req, res) => {
   const { slug } = req.query;
