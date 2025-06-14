@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import styles from './CommentSection.module.css';
+import { API_BASE_URL } from '../config';
 
 function CommentSection({ slug, isAdmin = false }) {
-  const API_BASE_URL = 'http://localhost:3001/api/comments';
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +27,7 @@ function CommentSection({ slug, isAdmin = false }) {
       article_slug: slug,
     };
 
-    const res = await fetch(API_BASE_URL, {
+    const res = await fetch(`${API_BASE_URL}/api/comments`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newComment),
@@ -49,7 +49,7 @@ function CommentSection({ slug, isAdmin = false }) {
       article_slug: slug,
     };
 
-    const res = await fetch(API_BASE_URL, {
+    const res = await fetch(`${API_BASE_URL}/api/comments`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newReply),
@@ -73,7 +73,7 @@ function CommentSection({ slug, isAdmin = false }) {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/comments/${commentId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/comments/${commentId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -258,7 +258,7 @@ const handleLike = async (commentId) => {
             <div className={styles.modalActions}>
               <button onClick={async () => {
                 try {
-                  const res = await fetch(`http://localhost:3001/api/comments/${commentToDelete}`, {
+                  const res = await fetch(`${API_BASE_URL}/api/comments/${commentToDelete}`, {
                     method: 'DELETE',
                     headers: {
                       'x-admin-secret': import.meta.env.VITE_ADMIN_SECRET,
