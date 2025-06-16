@@ -37,7 +37,7 @@ useEffect(() => {
   const handleScroll = () => {
     const isAtTop = window.scrollY < 20;
     const root = document.documentElement;
-    root.style.setProperty('--logo-top', isAtTop ? '230px' : '20px');
+    root.style.setProperty('--logo-top', isAtTop ? '250px' : '20px');
   };
 
   window.addEventListener('scroll', handleScroll);

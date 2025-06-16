@@ -63,10 +63,22 @@
 }
 
 .markdown {
-  line-height: 1.1rem;
-  font-size: 1.0rem;
-  color: #333;
+  font-family: 'Arial';
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: #121212;
 }
+
+.markdown h1, .markdown h2 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+.markdown a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
 
 
 @media (max-width: 768px) {
@@ -85,10 +97,15 @@
     margin: 0.5rem 0;
   }
     h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1rem;
   }
 
   p {
     font-size: 1rem;
+  }
+  .markdown {
+    font-size: 1.0rem;
+    line-height: 1.5rem;
   }
 }

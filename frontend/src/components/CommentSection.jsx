@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './CommentSection.module.css';
 import { API_BASE_URL } from '../config';
 
-function CommentSection({ slug, isAdmin = false }) {
+function CommentSection({ slug }) {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
+
 
   const [showForm, setShowForm] = useState(false);
   const [newAuthor, setNewAuthor] = useState('');
@@ -17,6 +18,29 @@ function CommentSection({ slug, isAdmin = false }) {
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState(null);
+
+  const [adminInput, setAdminInput] = useState('');
+  const [isAdmin, setIsAdmin] = useState(
+  localStorage.getItem('isAdmin') === 'true'
+  );
+  const [tapCount, setTapCount] = useState(0);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
+  const tapTimeout = useRef(null);
+
+  const handleAdminLogin = () => {
+    if (adminInput === import.meta.env.VITE_ADMIN_SECRET) {
+      setIsAdmin(true);
+      localStorage.setItem('isAdmin', 'true');
+      setAdminInput('');
+    } else {
+      alert('Incorrect password');
+    }
+  };
+
+  const handleAdminLogout = () => {
+  setIsAdmin(false);
+  localStorage.removeItem('isAdmin');
+  };
 
   const handleAddComment = async () => {
     if (!newAuthor.trim() || !newText.trim()) return;
@@ -68,56 +92,73 @@ function CommentSection({ slug, isAdmin = false }) {
     setReplyText('');
   };
 
-  const handleDeleteComment = async (commentId) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this comment?");
-    if (!confirmDelete) return;
+  // const handleDeleteComment = async (commentId) => {
+  //   const confirmDelete = window.confirm("Are you sure you want to delete this comment?");
+  //   if (!confirmDelete) return;
 
-    try {
-      const res = await fetch(`${API_BASE_URL}/api/comments/${commentId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-admin-secret': import.meta.env.VITE_ADMIN_SECRET,
-        },
-      });
+  //   try {
+  //     const res = await fetch(`${API_BASE_URL}/api/comments/${commentId}`, {
+  //       method: 'DELETE',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'x-admin-secret': import.meta.env.VITE_ADMIN_SECRET,
+  //       },
+  //     });
 
-      if (!res.ok) throw new Error('Failed to delete comment');
-      setComments(comments.filter(c => c.id !== commentId));
-    } catch (err) {
-      console.error('Delete error:', err);
-      alert('Failed to delete comment.');
-    }
-  };
+  //     if (!res.ok) throw new Error('Failed to delete comment');
+  //     setComments(comments.filter(c => c.id !== commentId));
+  //   } catch (err) {
+  //     console.error('Delete error:', err);
+  //     alert('Failed to delete comment.');
+  //   }
+  // };
 
 const handleLike = async (commentId) => {
   const likedKey = `liked_comment_${commentId}`;
   const hasLiked = localStorage.getItem(likedKey);
 
-  try {
-    const url = `${API_BASE_URL}/${commentId}/${hasLiked ? 'unlike' : 'like'}`;
-    const res = await fetch(url, {
-      method: 'POST',
-    });
-
-    if (!res.ok) throw new Error(`Failed to ${hasLiked ? 'unlike' : 'like'} comment`);
-
-    setComments(comments.map(c =>
+  // Optimistically update the UI
+  setComments(prevComments =>
+    prevComments.map(c =>
       c.id === commentId
         ? { ...c, likes: (c.likes || 0) + (hasLiked ? -1 : 1) }
         : c
-    ));
+    )
+  );
 
-    if (hasLiked) {
-      localStorage.removeItem(likedKey);
-    } else {
-      localStorage.setItem(likedKey, 'true');
-    }
+  // Update localStorage optimistically
+  if (hasLiked) {
+    localStorage.removeItem(likedKey);
+  } else {
+    localStorage.setItem(likedKey, 'true');
+  }
+
+  // Try to send the request to the backend
+  try {
+    const url = `${API_BASE_URL}/api/comments/${commentId}/${hasLiked ? 'unlike' : 'like'}`;
+    const res = await fetch(url, { method: 'POST' });
+    if (!res.ok) throw new Error(`Failed to ${hasLiked ? 'unlike' : 'like'} comment`);
   } catch (err) {
     console.error('Like toggle error:', err);
+
+    // Rollback the UI and localStorage if it failed
+    setComments(prevComments =>
+      prevComments.map(c =>
+        c.id === commentId
+          ? { ...c, likes: (c.likes || 0) + (hasLiked ? 1 : -1) } // undo
+          : c
+      )
+    );
+
+    if (hasLiked) {
+      localStorage.setItem(likedKey, 'true');
+    } else {
+      localStorage.removeItem(likedKey);
+    }
+
+    alert('Something went wrong while updating your like.');
   }
 };
-
-
 
   const renderComment = (comment, isReply = false) => {
     const children = comments
@@ -171,7 +212,7 @@ const handleLike = async (commentId) => {
   const topLevelComments = comments.filter(c => c.parent_id === null);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}?slug=${slug}`)
+    fetch(`${API_BASE_URL}/api/comments?slug=${slug}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch');
         return res.json();
@@ -203,6 +244,21 @@ const handleLike = async (commentId) => {
     document.addEventListener('keydown', handleGlobalEscape);
     return () => document.removeEventListener('keydown', handleGlobalEscape);
   }, []);
+
+  const handleSecretTap = () => {
+    setTapCount(prev => {
+      const newCount = prev + 1;
+      if (newCount >= 5) {
+        setShowAdminLogin(true);
+        clearTimeout(tapTimeout.current);
+        return 0;
+      }
+      clearTimeout(tapTimeout.current);
+      tapTimeout.current = setTimeout(() => setTapCount(0), 2000); // Reset after 2s
+      return newCount;
+    });
+  };
+
 
   return (
     <div className={styles.commentSection}>
@@ -237,7 +293,7 @@ const handleLike = async (commentId) => {
         </div>
       )}
 
-      <h3>Comments</h3>
+      <h3 onClick={handleSecretTap}>Comments</h3>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -283,6 +339,27 @@ const handleLike = async (commentId) => {
           </div>
         </div>
       )}
+
+    {showAdminLogin && !isAdmin && (
+      <div className={styles.adminLogin}>
+        <h4>Admin Login</h4>
+        <input
+          type="password"
+          placeholder="Enter admin password"
+          value={adminInput}
+          onChange={(e) => setAdminInput(e.target.value)}
+        />
+        <button onClick={handleAdminLogin}>Login</button>
+      </div>
+    )}
+  {isAdmin && (
+    <div className={styles.adminLogout}>
+      <p>You are logged in as Admin</p>
+      <button onClick={handleAdminLogout}>Logout</button>
+    </div>
+)}
+
+
     </div>
   );
 }

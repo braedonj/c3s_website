@@ -184,3 +184,20 @@
   background-color: #ddd;
 }
 
+.adminLogin {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: black;
+}
+
+.adminLogin input,
+.adminLogin button {
+  display: block;
+  margin: 0.5rem 0rem;
+}
+
+.adminLogout {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  color: green;
+}
