@@ -6,7 +6,7 @@ export const articles = [
     summary: "Lottery Dispells Draft Enthusiasum - GM Guide in How to Recover.",
     author: "Braedon Jones",
     authorSlug: "braedon-jones",
-    date: "May 18, 2025",
+    date: "June 16, 2025",
     image: "/images/JazzLogo.png",
     contentPath: "/articles/JazzDraft.md",
     tags: ["nba"]
@@ -18,7 +18,7 @@ export const articles = [
     summary: "They are bad",
     author: "Braedon Jones",
     authorSlug: "braedon-jones",
-    date: "May 18, 2025",
+    date: "June 15, 2025",
     image: "https://denversports.com/wp-content/uploads/2024/04/GettyImages-2146718921.jpg",
     contentPath: "/articles/RockiesBad.md",
     tags: ["mlb"]
@@ -46,5 +46,17 @@ export const articles = [
     image: "https://byucougars.com/imgproxy/vp6NMcImwNB0zbbCfnAXPtvwsAtMlzlOtJ8tN4ZUoL0/rs:fit:1980:0:0/g:ce/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2J5dWNvdWdhcnMtcHJvZC8yMDI0LzA0LzE2L1pOaGtYV3A3R29OeEFmelpzcm1Ld3V6VmlRM0lnQUxYdWxoOW5sNmUuanBn.jpg",
     contentPath: "/articles/BYUDominated.md",
     tags: ["cbb"]
-  }
+  },
+    {
+    id: 5,
+    title: "10 Top Hikes in Utah",
+    slug: "10-top-hikes-in-utah",
+    summary: "10 hikes to make the summer more satisfying",
+    author: "Braedon Jones",
+    authorSlug: "braedon-jones",
+    date: "June 16, 2025",
+    image: "https://i.pinimg.com/originals/24/bb/41/24bb418da96e85fc5f5a0348fac546f3.jpg",
+    contentPath: "/articles/TopHikesinUtah.md",
+    tags: ["other"]
+  },
 ];

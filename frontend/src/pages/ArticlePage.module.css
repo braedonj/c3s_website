@@ -79,6 +79,13 @@
   text-decoration: underline;
 }
 
+.markdown img {
+  max-width: 85%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
 
 
 @media (max-width: 768px) {
