@@ -55,6 +55,7 @@ team that beat the “national champions” and the national runner-up’s, and 
 be crowned national champions? Or even play for a chance to be national champions? There is
 something wrong with that. The sad part is that this is only one example of a many to choose
 from of small schools being bullied by the oppressive postseason regulations.
+
 Detractors to a 16-team playoff would cite players health as the biggest reason to avoid it.
 They would say that 3 extra games being imposed on the already oppressed college football
 players would be unethical. That is totally fair. I even agree with that. The easy rebuttal is to
