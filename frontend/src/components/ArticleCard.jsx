@@ -5,7 +5,7 @@ import styles from './ArticleCard.module.css';
 
 function ArticleCard({ article }) {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${styles.articleFadeIn}`}>
       <div className={styles.content}>
         <div className={styles.text}>
           <h2>

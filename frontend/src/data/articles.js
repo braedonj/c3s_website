@@ -59,4 +59,16 @@ export const articles = [
     contentPath: "/articles/TopHikesinUtah.md",
     tags: ["other"]
   },
+  {
+    id: 6,
+    title: "Manifest Destiny of College Football",
+    slug: "manifest-destiny-of-college-football",
+    summary: "Reccomendations for a More Fair System",
+    author: "Zach Taylor",
+    authorSlug: "zach-taylor",
+    date: "June 19, 2025",
+    image: "https://media.nbcsandiego.com/2022/01/web-220103-cfp-championship-trophy.jpg?quality=85&strip=all&resize=1200%2C675",
+    contentPath: "/articles/ManifestDestiny.md",
+    tags: ["cfb"]
+  },
 ];

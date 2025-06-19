@@ -46,9 +46,9 @@ function CategoryPage() {
         {recentArticles.length > 0 ? (
           <section className={styles.recentArticles}>
             {recentArticles.map((article) => (
-              <div key={article.slug} className={styles.articleFadeIn}>
-                <ArticleCard article={article} />
-              </div>
+                <div key={article.slug} className={styles.articleWrapper}>
+                  <ArticleCard article={article} />
+                </div>
             ))}
           </section>
         ) : (
