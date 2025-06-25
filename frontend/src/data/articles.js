@@ -71,4 +71,16 @@ export const articles = [
     contentPath: "/articles/ManifestDestiny.md",
     tags: ["cfb"]
   },
+    {
+    id: 7,
+    title: "2025 Utah Jazz Draft Preview",
+    slug: "2025-utah-jazz-draft-preview",
+    summary: "Will the Jazz Ace the 2025 Draft or Fear the Future?",
+    author: "Ryan Earl",
+    authorSlug: "ryan-earl",
+    date: "June 25, 2025",
+    image: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdf7c53f6-2be3-4f5d-ab9d-60aee1592647_1272x518.png",
+    contentPath: "/articles/JazzDraftArticle6_25.md",
+    tags: ["nba"]
+  },
 ];
