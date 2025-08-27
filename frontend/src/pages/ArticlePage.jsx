@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import styles from './ArticlePage.module.css';
 import Header from '/src/components/Header.jsx';
 import CommentSection from '/src/components/CommentSection.jsx';
+import rehypeRaw from "rehype-raw";
 
 function ArticlePage() {
   const { slug } = useParams();
@@ -43,7 +44,7 @@ function ArticlePage() {
           {/* <img className={styles.articleImage} src={article.image} alt={article.title} /> */}
          {/* <ReactMarkdown className={styles.markdown}>{markdown}</ReactMarkdown> */}
          <div className={styles.markdown}>
-           <ReactMarkdown>{markdown}</ReactMarkdown>
+           <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>
          </div>
 
          {/* <ReactMarkdown>{markdown}</ReactMarkdown> */}
@@ -56,3 +57,5 @@ function ArticlePage() {
 }
 
 export default ArticlePage;
+
+

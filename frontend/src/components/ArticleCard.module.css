@@ -93,3 +93,51 @@
   object-fit: cover;
 }
 }
+
+/* Default styling for all images inside markdown */
+.markdown img {
+  display: block;
+  margin: 1rem auto;   /* centers the image */
+  max-width: 600px;    /* prevents overflowing */
+  height: auto;        /* keeps aspect ratio */
+  border-radius: 8px;
+}
+
+/* Special overrides for big/small images from Markdown */
+:global(.big) {
+  width: 500px;
+  max-width: 100%; /* keeps responsive on mobile */
+  height: auto;
+}
+
+:global(.small) {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+}
+
+:global(.med) {
+  width: 450px;
+  max-width: 100%;
+  height: auto;
+}
+
+:global(.medbig) {
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+}
+
+:global(.img-row) {
+  display: flex;
+  justify-content: center;
+  gap: .1rem;         /* space between images */
+  flex-wrap: wrap;   /* allow wrapping on mobile */
+  margin: 1rem 0;
+}
+
+:global(.img-row img) {
+  max-width: 45%;    /* each image takes up about half */
+  height: auto;
+  border-radius: 8px;
+}

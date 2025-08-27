@@ -83,4 +83,16 @@ export const articles = [
     contentPath: "/articles/JazzDraftArticle6_25.md",
     tags: ["nba"]
   },
+    {
+    id: 9,
+    title: "Athens Anacondas Update",
+    slug: "athens-anacondas-update",
+    summary: "From Small Conference Underdog to Potential Dynasty",
+    author: "Zach Taylor",
+    authorSlug: "zach-taylor",
+    date: "August 27, 2025",
+    image: "/AnacondasPics/Athens Logo.jpg",
+    contentPath: "/articles/Athens Anacondas.md",
+    tags: ["cfb"]
+  },
 ];
