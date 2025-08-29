@@ -91,7 +91,7 @@ export const articles = [
     author: "Zach Taylor",
     authorSlug: "zach-taylor",
     date: "August 27, 2025",
-    image: "/AnacondasPics/Athens Logo.jpg",
+    image: "/AnacondasPics/logo.png",
     contentPath: "/articles/Athens Anacondas.md",
     tags: ["cfb"]
   },
