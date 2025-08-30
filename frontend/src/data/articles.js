@@ -85,7 +85,7 @@ export const articles = [
   },
     {
     id: 9,
-    title: "Athens Anacondas Update",
+    title: "Athens Anaconda's History",
     slug: "athens-anacondas-update",
     summary: "From Small Conference Underdog to Potential Dynasty",
     author: "Zach Taylor",
