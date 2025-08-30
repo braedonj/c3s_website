@@ -207,7 +207,7 @@ The bloodshed in the SEC was unparalleled. Obviously Vanderbilt was removed. The
 
 Things in the ACC were far more civil. The top teams in the ACC, spearheaded by Clemson and Florida State called for consolidation to match the B1G and the SEC. The other top ACC teams agreed with heavy hearts. It was obvious to all that Wake Forest was done. It was less obvious, but the Virginia schools were also toast. Where the peculiar decision was made was to steal Tulane from the Pac-12 to replace Georgia Tech. Georgia Tech was furious with this decision, and argued for inclusion on the basis of history and tradition, but the argument fell on deaf ears, as objectively Tulane was a far better option for the ACC moving forward.  
 
- <img src="/AnacondasPics/ConfSEC.jpeg" alt="ACC Conference" class= "med" />
+ <img src="/AnacondasPics/ConfACC.jpeg" alt="ACC Conference" class= "med" />
 
 
 The dear reader may ask, “What happened to the fallen power teams?” and “What happened to the Big 12?” Let’s address the Big 12 first. When the newly anointed P3 zigged, the Big 12 zagged. Recognizing that there was no obvious overachievers from a perennially balanced conference, there was no hierarchy for the Big 12 to consolidate around. No teams were chronically underperforming over the years, so ousting was not the conclusion made by the Big 12, but rather expansion.
